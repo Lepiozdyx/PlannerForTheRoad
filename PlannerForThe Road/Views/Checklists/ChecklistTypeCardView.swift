@@ -27,3 +27,19 @@ struct ChecklistTypeCardView: View {
         .shadow(color: Color.black.opacity(0.35), radius: 6, y: 2)
     }
 }
+
+#Preview {
+    let type = ChecklistType(
+        name: "Sea Trip",
+        emoji: "🏖️",
+        items: [
+            ChecklistItem(name: "Sunscreen", quantity: 2, isPacked: true),
+            ChecklistItem(name: "Towel", quantity: 2, isPacked: true),
+            ChecklistItem(name: "Sunglasses", quantity: 1)
+        ]
+    )
+    AppShell {
+        ChecklistTypeCardView(type: type)
+            .padding()
+    }
+}

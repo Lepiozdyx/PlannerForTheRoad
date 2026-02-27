@@ -81,3 +81,21 @@ struct TripChecklistTabView: View {
         .padding(.vertical, 32)
     }
 }
+
+#Preview("With Checklist") {
+    let store = AppStore.preview
+    AppShell {
+        TripChecklistTabView(trip: store.trips[0])
+            .padding()
+    }
+    .environment(store)
+}
+
+#Preview("Empty") {
+    let store = AppStore.preview
+    AppShell {
+        TripChecklistTabView(trip: store.trips[1])
+            .padding()
+    }
+    .environment(store)
+}

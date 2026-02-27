@@ -53,3 +53,21 @@ struct RouteTabView: View {
         .padding(.vertical, 32)
     }
 }
+
+#Preview("With Stops") {
+    let store = AppStore.preview
+    AppShell {
+        RouteTabView(trip: store.trips[0])
+            .padding()
+    }
+    .environment(store)
+}
+
+#Preview("Empty") {
+    let store = AppStore.preview
+    AppShell {
+        RouteTabView(trip: store.trips[1])
+            .padding()
+    }
+    .environment(store)
+}

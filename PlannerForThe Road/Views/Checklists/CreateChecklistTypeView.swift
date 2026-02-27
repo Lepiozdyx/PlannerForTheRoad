@@ -62,3 +62,8 @@ struct CreateChecklistTypeView: View {
         dismiss()
     }
 }
+
+#Preview {
+    CreateChecklistTypeView()
+        .environment(AppStore.preview)
+}

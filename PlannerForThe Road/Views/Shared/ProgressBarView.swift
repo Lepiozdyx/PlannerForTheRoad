@@ -19,3 +19,15 @@ struct ProgressBarView: View {
         .frame(height: AppTheme.Size.progressBarHeight)
     }
 }
+
+#Preview {
+    AppShell {
+        VStack(spacing: 16) {
+            ProgressBarView(progress: 0.0)
+            ProgressBarView(progress: 0.35)
+            ProgressBarView(progress: 0.75)
+            ProgressBarView(progress: 1.0)
+        }
+        .padding()
+    }
+}

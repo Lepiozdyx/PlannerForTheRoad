@@ -58,3 +58,18 @@ struct PlacesTabView: View {
         .padding(.horizontal, 16)
     }
 }
+
+#Preview("With Places") {
+    let store = AppStore.preview
+    AppShell {
+        PlacesTabView(trip: store.trips[0])
+            .padding()
+    }
+}
+
+#Preview("Empty") {
+    AppShell {
+        PlacesTabView(trip: Trip(title: "Empty Trip", distanceKm: 0, travelTime: ""))
+            .padding()
+    }
+}

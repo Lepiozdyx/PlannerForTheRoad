@@ -101,3 +101,9 @@ struct ChecklistDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.card))
     }
 }
+
+#Preview {
+    let store = AppStore.preview
+    ChecklistDetailView(typeId: store.checklistTypes[0].id)
+        .environment(store)
+}

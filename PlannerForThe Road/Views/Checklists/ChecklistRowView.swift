@@ -44,3 +44,16 @@ struct ChecklistRowView: View {
         }
     }
 }
+
+#Preview {
+    let store = AppStore.preview
+    let type = store.checklistTypes[0]
+    AppShell {
+        VStack(spacing: 4) {
+            ChecklistRowView(item: type.items[0], typeId: type.id)
+            ChecklistRowView(item: type.items[2], typeId: type.id)
+        }
+        .padding()
+    }
+    .environment(store)
+}

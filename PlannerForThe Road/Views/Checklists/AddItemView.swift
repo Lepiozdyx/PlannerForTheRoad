@@ -106,3 +106,8 @@ struct AddItemView: View {
         dismiss()
     }
 }
+
+#Preview {
+    AddItemView(typeId: UUID())
+        .environment(AppStore.preview)
+}

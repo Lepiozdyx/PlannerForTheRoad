@@ -79,3 +79,13 @@ struct TripsView: View {
         }
     }
 }
+
+#Preview("With Trips") {
+    TripsView()
+        .environment(AppStore.preview)
+}
+
+#Preview("Empty State") {
+    TripsView()
+        .environment(AppStore())
+}

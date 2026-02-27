@@ -124,6 +124,11 @@ struct CreateTripView: View {
     }
 }
 
+#Preview {
+    CreateTripView()
+        .environment(AppStore.preview)
+}
+
 struct FlowLayout: Layout {
     var spacing: CGFloat = 8
 

@@ -9,22 +9,26 @@ struct RootTabView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selectedTab) {
-                TripsView()
-                    .tag(AppTab.trips)
-
-                ChecklistsView()
-                    .tag(AppTab.checklists)
-
-                StatisticsView()
-                    .tag(AppTab.statistics)
+            Group {
+                switch selectedTab {
+                case .trips:
+                    TripsView()
+                case .checklists:
+                    ChecklistsView()
+                case .statistics:
+                    StatisticsView()
+                }
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
 
             BottomTabBar(selectedTab: $selectedTab)
         }
         .ignoresSafeArea(edges: .bottom)
     }
+}
+
+#Preview {
+    RootTabView()
+        .environment(AppStore.preview)
 }
 
 struct BottomTabBar: View {

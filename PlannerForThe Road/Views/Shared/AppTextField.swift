@@ -58,3 +58,15 @@ struct AppTextArea: View {
         }
     }
 }
+
+#Preview {
+    @Previewable @State var text = "Sample input"
+    @Previewable @State var notes = ""
+    AppShell {
+        VStack(spacing: 16) {
+            AppTextField(label: "Trip Title", placeholder: "e.g., Moscow → Sochi", text: $text)
+            AppTextArea(label: "Description", placeholder: "Add notes here...", text: $notes)
+        }
+        .padding()
+    }
+}

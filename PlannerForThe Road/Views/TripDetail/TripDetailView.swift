@@ -148,3 +148,9 @@ struct TripDetailView: View {
         }
     }
 }
+
+#Preview {
+    let store = AppStore.preview
+    TripDetailView(trip: store.trips[0])
+        .environment(store)
+}

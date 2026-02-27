@@ -21,3 +21,13 @@ struct InfoBannerView: View {
         .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.card))
     }
 }
+
+#Preview {
+    AppShell {
+        VStack(spacing: 12) {
+            InfoBannerView(icon: "info.circle", message: "💡 You can add stops and places after creating the trip")
+            InfoBannerView(icon: "hand.point.left", message: "Swipe left to delete an item")
+        }
+        .padding()
+    }
+}

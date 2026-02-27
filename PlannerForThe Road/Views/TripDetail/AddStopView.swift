@@ -112,3 +112,13 @@ struct AddPlaceView: View {
         dismiss()
     }
 }
+
+#Preview("Add Stop") {
+    AddStopView(tripId: UUID())
+        .environment(AppStore.preview)
+}
+
+#Preview("Add Place") {
+    AddPlaceView(stopId: UUID(), tripId: UUID())
+        .environment(AppStore.preview)
+}

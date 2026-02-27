@@ -41,3 +41,15 @@ struct RankingRowView: View {
         }
     }
 }
+
+#Preview {
+    AppShell {
+        VStack(spacing: 8) {
+            RankingRowView(rank: 1, title: "Moscow → Sochi", distanceKm: 1700)
+            RankingRowView(rank: 2, title: "Moscow → Saint Petersburg", distanceKm: 700)
+            RankingRowView(rank: 3, title: "Yekaterinburg Loop", distanceKm: 450)
+            RankingRowView(rank: 4, title: "Kazan Day Trip", distanceKm: 210)
+        }
+        .padding()
+    }
+}

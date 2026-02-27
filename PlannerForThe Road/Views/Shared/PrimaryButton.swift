@@ -20,3 +20,13 @@ struct PrimaryButton: View {
         .opacity(isDisabled ? 0.5 : 1)
     }
 }
+
+#Preview {
+    AppShell {
+        VStack(spacing: 16) {
+            PrimaryButton(title: "Save Trip") {}
+            PrimaryButton(title: "Disabled Button", action: {}, isDisabled: true)
+        }
+        .padding()
+    }
+}

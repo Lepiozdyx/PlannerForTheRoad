@@ -17,3 +17,14 @@ struct ChipView: View {
         }
     }
 }
+
+#Preview {
+    AppShell {
+        HStack(spacing: 8) {
+            ChipView(title: "🏖️ Sea Trip", isSelected: true) {}
+            ChipView(title: "🏕️ Mountain", isSelected: false) {}
+            ChipView(title: "❄️ Winter", isSelected: false) {}
+        }
+        .padding()
+    }
+}

@@ -50,3 +50,15 @@ struct MonthlyBarChartView: View {
         .clipShape(RoundedRectangle(cornerRadius: AppTheme.Radius.card))
     }
 }
+
+#Preview {
+    AppShell {
+        MonthlyBarChartView(entries: [
+            MonthlyDistanceEntry(month: "Jan", distance: 800, isHighlighted: false),
+            MonthlyDistanceEntry(month: "Feb", distance: 1700, isHighlighted: true),
+            MonthlyDistanceEntry(month: "Mar", distance: 450, isHighlighted: false),
+            MonthlyDistanceEntry(month: "Apr", distance: 700, isHighlighted: false)
+        ])
+        .padding()
+    }
+}

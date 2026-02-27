@@ -53,3 +53,8 @@ struct ChecklistsView: View {
         .frame(height: AppTheme.Size.topBarHeight)
     }
 }
+
+#Preview {
+    ChecklistsView()
+        .environment(AppStore.preview)
+}
