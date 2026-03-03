@@ -30,8 +30,8 @@ struct TripsView: View {
                     }
 
                     newTripButton
+                        .padding(.bottom, AppTheme.Size.tabBarHeight)
                 }
-                .padding(.bottom, AppTheme.Size.tabBarHeight)
             }
             .navigationDestination(for: Trip.self) { trip in
                 TripDetailView(trip: trip)

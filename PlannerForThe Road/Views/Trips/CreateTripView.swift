@@ -49,8 +49,10 @@ struct CreateTripView: View {
                     .padding(.top, 20)
                     .padding(.bottom, AppTheme.Size.primaryButtonHeight + 32)
                 }
-
+                .scrollIndicators(.hidden)
+                
                 bottomButton
+                    .padding(.bottom, AppTheme.Size.tabBarHeight)
             }
         }
         .navigationBarHidden(true)

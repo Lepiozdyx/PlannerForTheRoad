@@ -24,12 +24,11 @@ struct CreateChecklistTypeView: View {
                     }
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.top, 20)
-                    .padding(.bottom, AppTheme.Size.primaryButtonHeight + 32)
                 }
 
                 PrimaryButton(title: "Create Type", action: save, isDisabled: name.isEmpty)
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
-                    .padding(.bottom, 24)
+                    .padding(.bottom, AppTheme.Size.tabBarHeight)
             }
         }
         .navigationBarHidden(true)
