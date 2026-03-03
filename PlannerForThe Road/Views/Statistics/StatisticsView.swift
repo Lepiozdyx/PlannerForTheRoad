@@ -57,8 +57,8 @@ struct StatisticsView: View {
                     .padding(.top, 16)
                     .padding(.bottom, 24)
                 }
+                .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
             }
-            .padding(.bottom, AppTheme.Size.tabBarHeight)
         }
     }
 

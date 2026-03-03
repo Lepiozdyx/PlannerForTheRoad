@@ -19,10 +19,11 @@ struct RootTabView: View {
                     StatisticsView()
                 }
             }
-
-            BottomTabBar(selectedTab: $selectedTab)
+            .safeAreaInset(edge: .bottom) {
+                BottomTabBar(selectedTab: $selectedTab)
+                    .ignoresSafeArea(.keyboard)
+            }
         }
-        .ignoresSafeArea(edges: .bottom)
     }
 }
 
@@ -52,15 +53,15 @@ struct BottomTabBar: View {
         } label: {
             VStack(spacing: 4) {
                 Image(systemName: icon)
-                    .font(.system(size: 22))
+                    .font(.system(size: 20))
                 Text(label)
-                    .font(.system(size: 13, weight: .regular))
+                    .font(.system(size: 12, weight: .regular))
             }
             .foregroundStyle(isActive ? AppTheme.Colors.accentPrimary : AppTheme.Colors.textSecondary)
             .frame(maxWidth: .infinity)
             .padding(.top, 10)
-            .padding(.bottom, 8)
             .contentShape(Rectangle())
+            .animation(.default, value: isActive)
         }
     }
 }

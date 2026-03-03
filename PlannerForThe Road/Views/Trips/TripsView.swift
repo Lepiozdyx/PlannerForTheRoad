@@ -26,6 +26,7 @@ struct TripsView: View {
                             .padding(.top, 16)
                             .padding(.bottom, AppTheme.Size.primaryButtonHeight + 40)
                         }
+                        .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
                     }
 
                     newTripButton

@@ -53,7 +53,7 @@ enum AppTheme {
         static let textAreaHeight: CGFloat       = 112
         static let photoDropzoneHeight: CGFloat  = 148
         static let chipHeight: CGFloat           = 40
-        static let tabBarHeight: CGFloat         = 88
+        static let tabBarHeight: CGFloat         = 49
         static let progressBarHeight: CGFloat    = 9
         static let checklistRowHeight: CGFloat   = 56
         static let topBarHeight: CGFloat         = 56

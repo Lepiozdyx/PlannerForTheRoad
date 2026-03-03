@@ -41,7 +41,7 @@ struct AppTextArea: View {
                 if text.isEmpty {
                     Text(placeholder)
                         .font(.system(size: 16))
-                        .foregroundStyle(AppTheme.Colors.textTertiary)
+                        .foregroundStyle(AppTheme.Colors.textTertiary.opacity(0.5))
                         .padding(.horizontal, 12)
                         .padding(.top, 12)
                 }
@@ -65,6 +65,7 @@ struct AppTextArea: View {
     AppShell {
         VStack(spacing: 16) {
             AppTextField(label: "Trip Title", placeholder: "e.g., Moscow → Sochi", text: $text)
+            AppTextField(label: "Trip Title", placeholder: "e.g., Moscow → Sochi", text: .constant(""))
             AppTextArea(label: "Description", placeholder: "Add notes here...", text: $notes)
         }
         .padding()
