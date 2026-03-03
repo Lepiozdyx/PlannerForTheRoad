@@ -7,6 +7,7 @@ struct AddStopView: View {
 
     @State private var name = ""
     @State private var distanceText = ""
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         AppShell {
@@ -17,12 +18,14 @@ struct AddStopView: View {
                     VStack(spacing: AppTheme.Spacing.fieldGap) {
                         AppTextField(label: "City / Stop Name",
                                      placeholder: "e.g., Nizhny Novgorod",
-                                     text: $name)
+                                     text: $name,
+                                     focus: $isFocused)
 
                         AppTextField(label: "Distance from Start (km)",
                                      placeholder: "e.g., 450",
                                      text: $distanceText,
-                                     keyboardType: .numberPad)
+                                     keyboardType: .numberPad,
+                                     focus: $isFocused)
                     }
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.top, 20)
@@ -34,6 +37,7 @@ struct AddStopView: View {
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.bottom, AppTheme.Size.tabBarHeight)
             }
+            .onTapGesture { isFocused = false }
         }
     }
 

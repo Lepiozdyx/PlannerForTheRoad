@@ -10,6 +10,7 @@ struct EditTripView: View {
     @State private var travelTime: String
     @State private var description: String
     @State private var selectedTypeIds: Set<UUID>
+    @FocusState private var isFocused: Bool
 
     init(trip: Trip) {
         self.trip = trip
@@ -29,20 +30,24 @@ struct EditTripView: View {
                     VStack(spacing: AppTheme.Spacing.fieldGap) {
                         AppTextField(label: "Trip Title",
                                      placeholder: "e.g., Moscow → Yekaterinburg",
-                                     text: $title)
+                                     text: $title,
+                                     focus: $isFocused)
 
                         AppTextField(label: "Distance (km)",
                                      placeholder: "0",
                                      text: $distanceText,
-                                     keyboardType: .numberPad)
+                                     keyboardType: .numberPad,
+                                     focus: $isFocused)
 
                         AppTextField(label: "Travel Time",
                                      placeholder: "e.g., 20h 30m",
-                                     text: $travelTime)
+                                     text: $travelTime,
+                                     focus: $isFocused)
 
                         AppTextArea(label: "Description",
                                     placeholder: "12:30 Leave Moscow\n15:00 Refueling\n...",
-                                    text: $description)
+                                    text: $description,
+                                    focus: $isFocused)
 
                         checklistTypeSection
 
@@ -58,6 +63,7 @@ struct EditTripView: View {
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.bottom, 24)
             }
+            .onTapGesture { isFocused = false }
         }
     }
 

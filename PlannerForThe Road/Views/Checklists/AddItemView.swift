@@ -10,6 +10,7 @@ struct AddItemView: View {
     @State private var quantityText = "1"
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var photoData: Data?
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         AppShell {
@@ -20,12 +21,14 @@ struct AddItemView: View {
                     VStack(spacing: AppTheme.Spacing.fieldGap) {
                         AppTextField(label: "Item Name",
                                      placeholder: "e.g., Sunscreen",
-                                     text: $name)
+                                     text: $name,
+                                     focus: $isFocused)
 
                         AppTextField(label: "Quantity",
                                      placeholder: "1",
                                      text: $quantityText,
-                                     keyboardType: .numberPad)
+                                     keyboardType: .numberPad,
+                                     focus: $isFocused)
 
                         photoSection
                     }
@@ -39,6 +42,7 @@ struct AddItemView: View {
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.bottom, 24)
             }
+            .onTapGesture { isFocused = false }
         }
     }
 
