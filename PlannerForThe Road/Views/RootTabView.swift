@@ -8,7 +8,7 @@ struct RootTabView: View {
     @State private var selectedTab: AppTab = .trips
 
     var body: some View {
-        ZStack(alignment: .bottom) {
+        ZStack {
             Group {
                 switch selectedTab {
                 case .trips:
