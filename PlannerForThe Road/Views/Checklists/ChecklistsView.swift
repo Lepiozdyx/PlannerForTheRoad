@@ -24,6 +24,7 @@ struct ChecklistsView: View {
                         .padding(.bottom, AppTheme.Size.primaryButtonHeight + 40)
                     }
                     .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
+                    .scrollIndicators(.hidden)
 
                     PrimaryButton(title: "+ Create Custom Type") {
                         showCreate = true

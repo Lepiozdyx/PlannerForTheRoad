@@ -39,6 +39,7 @@ struct TripDetailView: View {
                     .padding(.bottom, 24)
                 }
                 .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
+                .scrollIndicators(.hidden)
             }
         }
         .navigationBarHidden(true)

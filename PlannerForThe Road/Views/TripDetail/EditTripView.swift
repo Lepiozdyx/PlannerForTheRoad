@@ -52,6 +52,7 @@ struct EditTripView: View {
                     .padding(.top, 20)
                     .padding(.bottom, AppTheme.Size.primaryButtonHeight + 32)
                 }
+                .scrollIndicators(.hidden)
 
                 PrimaryButton(title: "Save Changes", action: save)
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)

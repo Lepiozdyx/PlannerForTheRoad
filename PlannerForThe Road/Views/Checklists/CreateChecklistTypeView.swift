@@ -25,6 +25,7 @@ struct CreateChecklistTypeView: View {
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.top, 20)
                 }
+                .scrollIndicators(.hidden)
 
                 PrimaryButton(title: "Create Type", action: save, isDisabled: name.isEmpty)
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)

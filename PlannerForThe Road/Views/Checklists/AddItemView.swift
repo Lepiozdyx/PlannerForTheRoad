@@ -33,6 +33,7 @@ struct AddItemView: View {
                     .padding(.top, 20)
                     .padding(.bottom, AppTheme.Size.primaryButtonHeight + 32)
                 }
+                .scrollIndicators(.hidden)
 
                 PrimaryButton(title: "Add Item", action: save, isDisabled: name.isEmpty)
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)

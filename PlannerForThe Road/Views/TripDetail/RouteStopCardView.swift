@@ -30,7 +30,7 @@ struct RouteStopCardView: View {
             }
 
             if !stop.places.isEmpty {
-                ScrollView(.horizontal, showsIndicators: false) {
+                ScrollView(.horizontal) {
                     HStack(spacing: 8) {
                         ForEach(stop.places) { place in
                             Text(place.name)
@@ -43,6 +43,7 @@ struct RouteStopCardView: View {
                         }
                     }
                 }
+                .scrollIndicators(.hidden)
             }
         }
         .padding(16)
