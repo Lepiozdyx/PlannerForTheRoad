@@ -3,6 +3,7 @@ import SwiftUI
 struct TripsView: View {
     @Environment(AppStore.self) private var store
     @State private var showCreate = false
+    @State private var tripToDelete: Trip?
 
     var body: some View {
         NavigationStack {
@@ -13,21 +14,35 @@ struct TripsView: View {
                     if store.trips.isEmpty {
                         emptyState
                     } else {
-                        ScrollView {
-                            LazyVStack(spacing: AppTheme.Spacing.cardGap) {
-                                ForEach(store.trips) { trip in
-                                    NavigationLink(value: trip) {
-                                        TripCardView(trip: trip)
+                        List {
+                            ForEach(store.trips) { trip in
+                                ZStack {
+                                    NavigationLink(value: trip) { EmptyView() }
+                                        .opacity(0)
+                                    TripCardView(trip: trip)
+                                }
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(.init(top: 0, leading: 0, bottom: AppTheme.Spacing.cardGap, trailing: 0))
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    Button(role: .destructive) {
+                                        tripToDelete = trip
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
                                     }
-                                    .buttonStyle(.plain)
                                 }
                             }
-                            .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
-                            .padding(.top, 16)
-                            .padding(.bottom, AppTheme.Size.primaryButtonHeight + 40)
                         }
+                        .listStyle(.plain)
+                        .scrollContentBackground(.hidden)
+                        .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
+                        .padding(.top, 16)
                         .scrollIndicators(.hidden)
-                        .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
+                        .contentMargins(
+                            .bottom,
+                            AppTheme.Size.primaryButtonHeight + AppTheme.Size.tabBarHeight + 40,
+                            for: .scrollContent
+                        )
                     }
 
                     newTripButton
@@ -38,6 +53,18 @@ struct TripsView: View {
                 TripDetailView(trip: trip)
             }
             .navigationBarHidden(true)
+            .alert("Delete Trip?", isPresented: Binding(
+                get: { tripToDelete != nil },
+                set: { if !$0 { tripToDelete = nil } }
+            )) {
+                Button("Delete", role: .destructive) {
+                    if let trip = tripToDelete { store.deleteTrip(id: trip.id) }
+                    tripToDelete = nil
+                }
+                Button("Cancel", role: .cancel) { tripToDelete = nil }
+            } message: {
+                Text("\(tripToDelete?.title ?? "") will be permanently deleted.")
+            }
         }
     }
 

@@ -3,6 +3,7 @@ import SwiftUI
 struct ChecklistsView: View {
     @Environment(AppStore.self) private var store
     @State private var showCreate = false
+    @State private var checklistTypeToDelete: ChecklistType?
 
     var body: some View {
         NavigationStack {
@@ -10,21 +11,35 @@ struct ChecklistsView: View {
                 VStack(spacing: 0) {
                     titleBar
 
-                    ScrollView {
-                        LazyVStack(spacing: AppTheme.Spacing.listItemGap) {
-                            ForEach(store.checklistTypes) { type in
-                                NavigationLink(value: type.id) {
-                                    ChecklistTypeCardView(type: type)
+                    List {
+                        ForEach(store.checklistTypes) { type in
+                            ZStack {
+                                NavigationLink(value: type.id) { EmptyView() }
+                                    .opacity(0)
+                                ChecklistTypeCardView(type: type)
+                            }
+                            .listRowBackground(Color.clear)
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: AppTheme.Spacing.listItemGap, trailing: 0))
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                Button(role: .destructive) {
+                                    checklistTypeToDelete = type
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
                                 }
-                                .buttonStyle(.plain)
                             }
                         }
-                        .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
-                        .padding(.top, 16)
-                        .padding(.bottom, AppTheme.Size.primaryButtonHeight + 40)
                     }
-                    .contentMargins(.bottom, AppTheme.Size.tabBarHeight, for: .scrollContent)
+                    .listStyle(.plain)
+                    .scrollContentBackground(.hidden)
+                    .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
+                    .padding(.top, 16)
                     .scrollIndicators(.hidden)
+                    .contentMargins(
+                        .bottom,
+                        AppTheme.Size.primaryButtonHeight + AppTheme.Size.tabBarHeight + 40,
+                        for: .scrollContent
+                    )
 
                     PrimaryButton(title: "+ Create Custom Type") {
                         showCreate = true
@@ -41,6 +56,18 @@ struct ChecklistsView: View {
                 ChecklistDetailView(typeId: typeId)
             }
             .navigationBarHidden(true)
+            .alert("Delete Checklist?", isPresented: Binding(
+                get: { checklistTypeToDelete != nil },
+                set: { if !$0 { checklistTypeToDelete = nil } }
+            )) {
+                Button("Delete", role: .destructive) {
+                    if let type = checklistTypeToDelete { store.deleteChecklistType(id: type.id) }
+                    checklistTypeToDelete = nil
+                }
+                Button("Cancel", role: .cancel) { checklistTypeToDelete = nil }
+            } message: {
+                Text("\(checklistTypeToDelete.map { "\($0.emoji) \($0.name)" } ?? "") will be permanently deleted.")
+            }
         }
     }
 
