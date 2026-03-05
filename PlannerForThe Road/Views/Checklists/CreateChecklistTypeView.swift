@@ -21,15 +21,14 @@ struct CreateChecklistTypeView: View {
                         AppTextField(label: "Emoji",
                                      placeholder: "e.g., 🌴",
                                      text: $emoji)
+                        
+                        PrimaryButton(title: "Create Type", action: save, isDisabled: name.isEmpty)
+                            .padding(.top, AppTheme.Spacing.screenHorizontal)
                     }
                     .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
                     .padding(.top, 20)
                 }
                 .scrollIndicators(.hidden)
-
-                PrimaryButton(title: "Create Type", action: save, isDisabled: name.isEmpty)
-                    .padding(.horizontal, AppTheme.Spacing.screenHorizontal)
-                    .padding(.bottom, AppTheme.Size.tabBarHeight)
             }
         }
         .navigationBarHidden(true)
