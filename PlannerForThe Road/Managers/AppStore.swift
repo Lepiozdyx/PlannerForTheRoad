@@ -160,20 +160,20 @@ extension AppStore {
         ]
         store.checklistTypes = [seaTrip, mountain]
 
-        var stop1 = Stop(name: "Rostov-on-Don", distanceFromStart: 1100)
-        stop1.places = [Place(name: "Don River Embankment"), Place(name: "Rostov Kremlin")]
-        let stop2 = Stop(name: "Krasnodar", distanceFromStart: 1350)
+        var stop1 = Stop(name: "Rome", distanceFromStart: 1100)
+        stop1.places = [Place(name: "Tiber River Embankment"), Place(name: "Vatican Museum")]
+        let stop2 = Stop(name: "Barcelona", distanceFromStart: 1350)
 
         var trip1 = Trip(
-            title: "Moscow → Sochi",
+            title: "Berlin → Barcelona",
             distanceKm: 1700,
             travelTime: "20h 30m",
             checklistTypeIds: [seaTrip.id]
         )
         trip1.stops = [stop1, stop2]
 
-        let trip2 = Trip(title: "Moscow → Saint Petersburg", distanceKm: 700, travelTime: "8h 0m")
-        let trip3 = Trip(title: "Yekaterinburg Loop", distanceKm: 450, travelTime: "5h 20m")
+        let trip2 = Trip(title: "Paris → Amsterdam", distanceKm: 700, travelTime: "8h 0m")
+        let trip3 = Trip(title: "New York Loop", distanceKm: 450, travelTime: "5h 20m")
         store.trips = [trip1, trip2, trip3]
 
         return store

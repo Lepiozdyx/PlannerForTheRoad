@@ -80,8 +80,8 @@ struct AppTextArea: View {
     @Previewable @State var notes = ""
     AppShell {
         VStack(spacing: 16) {
-            AppTextField(label: "Trip Title", placeholder: "e.g., Moscow → Sochi", text: $text)
-            AppTextField(label: "Trip Title", placeholder: "e.g., Moscow → Sochi", text: .constant(""))
+            AppTextField(label: "Trip Title", placeholder: "e.g., Paris → Barcelona", text: $text)
+            AppTextField(label: "Trip Title", placeholder: "e.g., Paris → Barcelona", text: .constant(""))
             AppTextArea(label: "Description", placeholder: "Add notes here...", text: $notes)
         }
         .padding()

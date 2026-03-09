@@ -29,7 +29,7 @@ struct EditTripView: View {
                 ScrollView {
                     VStack(spacing: AppTheme.Spacing.fieldGap) {
                         AppTextField(label: "Trip Title",
-                                     placeholder: "e.g., Moscow → Yekaterinburg",
+                                     placeholder: "e.g., Paris → Berlin",
                                      text: $title,
                                      focus: $isFocused)
 
@@ -45,7 +45,7 @@ struct EditTripView: View {
                                      focus: $isFocused)
 
                         AppTextArea(label: "Description",
-                                    placeholder: "12:30 Leave Moscow\n15:00 Refueling\n...",
+                                    placeholder: "12:30 Leave Paris\n15:00 Refueling\n...",
                                     text: $description,
                                     focus: $isFocused)
 
