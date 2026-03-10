@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct StatisticsView: View {
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
 
     private var totalDistance: Int {
         store.trips.reduce(0) { $0 + $1.distanceKm }
@@ -119,5 +119,5 @@ struct StatisticsView: View {
 
 #Preview {
     StatisticsView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }

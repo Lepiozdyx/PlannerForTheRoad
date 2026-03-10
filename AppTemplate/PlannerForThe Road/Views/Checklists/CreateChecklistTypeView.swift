@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CreateChecklistTypeView: View {
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
@@ -64,5 +64,5 @@ struct CreateChecklistTypeView: View {
 
 #Preview {
     CreateChecklistTypeView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }

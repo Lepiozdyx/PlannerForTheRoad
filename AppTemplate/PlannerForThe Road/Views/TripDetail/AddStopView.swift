@@ -2,7 +2,7 @@ import SwiftUI
 
 struct AddStopView: View {
     let tripId: UUID
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
 
     @State private var name = ""
@@ -72,7 +72,7 @@ struct AddStopView: View {
 struct AddPlaceView: View {
     let stopId: UUID
     let tripId: UUID
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
 
@@ -120,10 +120,10 @@ struct AddPlaceView: View {
 
 #Preview("Add Stop") {
     AddStopView(tripId: UUID())
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }
 
 #Preview("Add Place") {
     AddPlaceView(stopId: UUID(), tripId: UUID())
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }

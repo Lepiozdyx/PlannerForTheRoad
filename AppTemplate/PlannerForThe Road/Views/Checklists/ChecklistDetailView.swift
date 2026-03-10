@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ChecklistDetailView: View {
     let typeId: UUID
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
     @State private var showAddItem = false
 
@@ -103,7 +103,7 @@ struct ChecklistDetailView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     ChecklistDetailView(typeId: store.checklistTypes[0].id)
         .environment(store)
 }

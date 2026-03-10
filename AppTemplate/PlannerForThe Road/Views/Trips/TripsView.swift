@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TripsView: View {
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @State private var showCreate = false
     @State private var tripToDelete: Trip?
 
@@ -111,10 +111,10 @@ struct TripsView: View {
 
 #Preview("With Trips") {
     TripsView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }
 
 #Preview("Empty State") {
     TripsView()
-        .environment(AppStore())
+        .environment(AppDetails())
 }

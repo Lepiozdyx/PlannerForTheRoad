@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
-    @State private var store = AppStore()
+    @State private var store = AppDetails()
     
     var body: some View {
         if hasCompletedOnboarding {

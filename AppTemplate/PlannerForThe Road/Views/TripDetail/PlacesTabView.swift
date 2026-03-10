@@ -60,7 +60,7 @@ struct PlacesTabView: View {
 }
 
 #Preview("With Places") {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         PlacesTabView(trip: store.trips[0])
             .padding()

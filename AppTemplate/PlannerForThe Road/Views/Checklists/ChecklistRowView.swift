@@ -3,7 +3,7 @@ import SwiftUI
 struct ChecklistRowView: View {
     let item: ChecklistItem
     let typeId: UUID
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
 
     var body: some View {
         HStack(spacing: 0) {
@@ -46,7 +46,7 @@ struct ChecklistRowView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     let type = store.checklistTypes[0]
     AppShell {
         VStack(spacing: 4) {

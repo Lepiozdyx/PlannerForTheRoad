@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChecklistsView: View {
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @State private var showCreate = false
     @State private var checklistTypeToDelete: ChecklistType?
 
@@ -85,5 +85,5 @@ struct ChecklistsView: View {
 
 #Preview {
     ChecklistsView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TripCardView: View {
     let trip: Trip
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -58,7 +58,7 @@ struct TripCardView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         TripCardView(trip: store.trips[0])
             .padding()

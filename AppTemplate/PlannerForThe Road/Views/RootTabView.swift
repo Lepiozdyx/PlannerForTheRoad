@@ -29,7 +29,7 @@ struct RootTabView: View {
 
 #Preview {
     RootTabView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }
 
 struct BottomTabBar: View {

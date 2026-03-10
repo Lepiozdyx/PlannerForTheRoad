@@ -2,7 +2,7 @@ import SwiftUI
 
 struct EditTripView: View {
     let trip: Trip
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
 
     @State private var title: String
@@ -121,7 +121,7 @@ struct EditTripView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     EditTripView(trip: store.trips[0])
         .environment(store)
 }

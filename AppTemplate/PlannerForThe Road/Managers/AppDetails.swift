@@ -3,7 +3,7 @@ import Observation
 import SwiftUI
 
 @Observable
-final class AppStore {
+final class AppDetails {
     var trips: [Trip] = []
     var checklistTypes: [ChecklistType] = []
 
@@ -142,9 +142,9 @@ final class AppStore {
 }
 
 #if DEBUG
-extension AppStore {
-    static var preview: AppStore {
-        let store = AppStore()
+extension AppDetails {
+    static var preview: AppDetails {
+        let store = AppDetails()
 
         var seaTrip = ChecklistType(name: "Sea Trip", emoji: "🏖️")
         seaTrip.items = [

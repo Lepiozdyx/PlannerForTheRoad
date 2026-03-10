@@ -55,7 +55,7 @@ struct RouteTabView: View {
 }
 
 #Preview("With Stops") {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         RouteTabView(trip: store.trips[0])
             .padding()
@@ -64,7 +64,7 @@ struct RouteTabView: View {
 }
 
 #Preview("Empty") {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         RouteTabView(trip: store.trips[1])
             .padding()

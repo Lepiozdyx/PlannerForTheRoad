@@ -10,7 +10,7 @@ struct Trip: Identifiable, Codable, Hashable {
     var stops: [Stop] = []
     var createdAt: Date = Date()
 
-    func packingProgress(in store: AppStore) -> Double {
+    func packingProgress(in store: AppDetails) -> Double {
         let types = store.checklistTypes.filter { checklistTypeIds.contains($0.id) }
         let total = types.reduce(0) { $0 + $1.totalCount }
         let packed = types.reduce(0) { $0 + $1.packedCount }

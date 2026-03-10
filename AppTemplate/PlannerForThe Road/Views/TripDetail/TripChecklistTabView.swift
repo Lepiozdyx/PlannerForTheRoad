@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TripChecklistTabView: View {
     let trip: Trip
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
 
     private var linkedTypes: [ChecklistType] {
         store.checklistTypes.filter { trip.checklistTypeIds.contains($0.id) }
@@ -83,7 +83,7 @@ struct TripChecklistTabView: View {
 }
 
 #Preview("With Checklist") {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         TripChecklistTabView(trip: store.trips[0])
             .padding()
@@ -92,7 +92,7 @@ struct TripChecklistTabView: View {
 }
 
 #Preview("Empty") {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     AppShell {
         TripChecklistTabView(trip: store.trips[1])
             .padding()

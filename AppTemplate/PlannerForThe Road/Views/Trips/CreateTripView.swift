@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CreateTripView: View {
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
 
     @State private var title = ""
@@ -134,7 +134,7 @@ struct CreateTripView: View {
 
 #Preview {
     CreateTripView()
-        .environment(AppStore.preview)
+        .environment(AppDetails.preview)
 }
 
 struct FlowLayout: Layout {

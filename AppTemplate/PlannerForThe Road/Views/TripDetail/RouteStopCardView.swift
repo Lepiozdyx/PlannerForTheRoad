@@ -3,7 +3,7 @@ import SwiftUI
 struct RouteStopCardView: View {
     let stop: Stop
     let tripId: UUID
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @State private var showAddPlace = false
 
     var body: some View {
@@ -56,7 +56,7 @@ struct RouteStopCardView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     let trip = store.trips[0]
     AppShell {
         RouteStopCardView(stop: trip.stops[0], tripId: trip.id)

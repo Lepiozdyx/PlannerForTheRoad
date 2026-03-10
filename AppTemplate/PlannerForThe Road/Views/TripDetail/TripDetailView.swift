@@ -4,7 +4,7 @@ enum TripTab { case route, places, checklist }
 
 struct TripDetailView: View {
     let trip: Trip
-    @Environment(AppStore.self) private var store
+    @Environment(AppDetails.self) private var store
     @Environment(\.dismiss) private var dismiss
     @State private var selectedTab: TripTab = .route
     @State private var showEdit = false
@@ -152,7 +152,7 @@ struct TripDetailView: View {
 }
 
 #Preview {
-    let store = AppStore.preview
+    let store = AppDetails.preview
     TripDetailView(trip: store.trips[0])
         .environment(store)
 }
