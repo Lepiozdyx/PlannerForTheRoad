@@ -27,11 +27,6 @@ struct RootTabView: View {
     }
 }
 
-#Preview {
-    RootTabView()
-        .environment(AppDetails.preview)
-}
-
 struct BottomTabBar: View {
     @Binding var selectedTab: AppTab
 

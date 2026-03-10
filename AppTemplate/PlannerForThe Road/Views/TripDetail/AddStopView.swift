@@ -117,13 +117,3 @@ struct AddPlaceView: View {
         dismiss()
     }
 }
-
-#Preview("Add Stop") {
-    AddStopView(tripId: UUID())
-        .environment(AppDetails.preview)
-}
-
-#Preview("Add Place") {
-    AddPlaceView(stopId: UUID(), tripId: UUID())
-        .environment(AppDetails.preview)
-}

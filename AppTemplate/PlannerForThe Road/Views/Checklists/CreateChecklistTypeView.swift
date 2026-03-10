@@ -61,8 +61,3 @@ struct CreateChecklistTypeView: View {
         dismiss()
     }
 }
-
-#Preview {
-    CreateChecklistTypeView()
-        .environment(AppDetails.preview)
-}

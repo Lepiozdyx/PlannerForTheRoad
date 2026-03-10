@@ -56,12 +56,3 @@ struct TripCardView: View {
         .shadow(color: Color.black.opacity(0.35), radius: 6, y: 2)
     }
 }
-
-#Preview {
-    let store = AppDetails.preview
-    AppShell {
-        TripCardView(trip: store.trips[0])
-            .padding()
-    }
-    .environment(store)
-}

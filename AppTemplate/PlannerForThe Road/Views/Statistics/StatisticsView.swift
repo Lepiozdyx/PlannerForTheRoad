@@ -116,8 +116,3 @@ struct StatisticsView: View {
         return "\(formatter.string(from: NSNumber(value: km)) ?? "\(km)") km"
     }
 }
-
-#Preview {
-    StatisticsView()
-        .environment(AppDetails.preview)
-}

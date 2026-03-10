@@ -108,13 +108,3 @@ struct TripsView: View {
         }
     }
 }
-
-#Preview("With Trips") {
-    TripsView()
-        .environment(AppDetails.preview)
-}
-
-#Preview("Empty State") {
-    TripsView()
-        .environment(AppDetails())
-}

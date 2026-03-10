@@ -119,9 +119,3 @@ struct EditTripView: View {
         dismiss()
     }
 }
-
-#Preview {
-    let store = AppDetails.preview
-    EditTripView(trip: store.trips[0])
-        .environment(store)
-}

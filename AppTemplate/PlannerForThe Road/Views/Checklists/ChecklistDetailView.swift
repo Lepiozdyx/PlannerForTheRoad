@@ -102,8 +102,3 @@ struct ChecklistDetailView: View {
     }
 }
 
-#Preview {
-    let store = AppDetails.preview
-    ChecklistDetailView(typeId: store.checklistTypes[0].id)
-        .environment(store)
-}

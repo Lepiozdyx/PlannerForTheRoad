@@ -83,7 +83,3 @@ struct ChecklistsView: View {
     }
 }
 
-#Preview {
-    ChecklistsView()
-        .environment(AppDetails.preview)
-}

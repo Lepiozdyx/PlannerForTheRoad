@@ -54,13 +54,3 @@ struct RouteStopCardView: View {
         }
     }
 }
-
-#Preview {
-    let store = AppDetails.preview
-    let trip = store.trips[0]
-    AppShell {
-        RouteStopCardView(stop: trip.stops[0], tripId: trip.id)
-            .padding()
-    }
-    .environment(store)
-}

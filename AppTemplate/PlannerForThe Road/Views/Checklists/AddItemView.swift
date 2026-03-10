@@ -112,7 +112,3 @@ struct AddItemView: View {
     }
 }
 
-#Preview {
-    AddItemView(typeId: UUID())
-        .environment(AppDetails.preview)
-}
