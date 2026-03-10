@@ -9,9 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.application = application
-//        onGameStart()
-//        return true
-        
+
         showLoadingScreen()
         initApp()
         

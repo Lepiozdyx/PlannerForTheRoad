@@ -55,12 +55,12 @@ extension AppDelegate : UNUserNotificationCenterDelegate
                     self.window = UIWindow(frame: UIScreen.main.bounds)
                     self.window?.rootViewController = loadingVC
                     self.window?.makeKeyAndVisible()
-                    // find element with id "logo" and add scale pulse animation to it
+                    
                     if let logo = loadingVC.view.viewWithTag(1) as? UIImageView {
                         let pulseAnimation = CABasicAnimation(keyPath: "transform.scale")
-                        pulseAnimation.duration = 1
+                        pulseAnimation.duration = 1.2
                         pulseAnimation.fromValue = 1
-                        pulseAnimation.toValue = 0.5
+                        pulseAnimation.toValue = 0.7
                         pulseAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                         pulseAnimation.autoreverses = true
                         pulseAnimation.repeatCount = .infinity
